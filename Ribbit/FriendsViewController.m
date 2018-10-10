@@ -24,7 +24,16 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.friends = [[User currentUser] friends];
+    NSArray *arrayWithDuplicates = [[User currentUser] friends];
+    
+    
+    // removing duplicates by populating a set and converting it back to array
+    NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:arrayWithDuplicates];
+    NSArray *arrayWithoutDuplicates = [orderedSet array];
+    //🤔
+    
+    self.friends = arrayWithoutDuplicates;
+
     [self.tableView reloadData];
 
 }

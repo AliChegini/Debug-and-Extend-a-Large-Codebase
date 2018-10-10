@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BA1-Cp-RJu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="hdx-au-269">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUF-nl-vFc">
-                                <rect key="frame" x="20" y="256" width="179" height="20.5"/>
+                                <rect key="frame" x="20" y="256" width="179" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -89,6 +89,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NRF-Ak-4Dc" secondAttribute="trailing" constant="20" symbolic="YES" id="0kU-k5-zi7"/>
                             <constraint firstItem="cZF-ds-FrG" firstAttribute="top" secondItem="ZQC-BI-gMf" secondAttribute="bottom" constant="50" id="2SP-8M-YTU"/>
+                            <constraint firstItem="cZF-ds-FrG" firstAttribute="centerY" secondItem="XUF-nl-vFc" secondAttribute="centerY" id="B9s-WX-guo"/>
                             <constraint firstAttribute="trailing" secondItem="LtO-lO-faO" secondAttribute="trailing" constant="20" symbolic="YES" id="Ie5-Ai-Mb9"/>
                             <constraint firstItem="ZQC-BI-gMf" firstAttribute="leading" secondItem="TnU-aj-axw" secondAttribute="leading" constant="20" symbolic="YES" id="K1v-nY-vU5"/>
                             <constraint firstItem="NRF-Ak-4Dc" firstAttribute="top" secondItem="TnU-aj-axw" secondAttribute="top" constant="100" id="N03-5a-2lb"/>
