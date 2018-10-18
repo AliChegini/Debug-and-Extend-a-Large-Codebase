@@ -39,9 +39,11 @@ static NSInteger identifier = 1;
   return user;
 }
 
+
 - (void)addFriend:(User *)friend {
   [self.friendsMutable addObject:friend];
 }
+
 
 - (void)removeFriend:(User *)friend {
   if ([self.friends containsObject:friend]) {

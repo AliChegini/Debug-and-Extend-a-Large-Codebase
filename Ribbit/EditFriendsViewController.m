@@ -19,9 +19,10 @@
 {
     [super viewDidLoad];
   
-  [self.tableView reloadData];
+    [self.tableView reloadData];
   
-  self.currentUser = [User currentUser];
+    self.currentUser = [User currentUser];
+    self.nameOfTheSelectedFirends = [[NSMutableArray alloc] init];
 }
 
 - (NSArray *)allUsers {
@@ -73,17 +74,42 @@
     if ([self isFriend:user]) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.currentUser removeFriend:user];
+        [self.tableView reloadData];
+        NSLog(@"already friends");
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        NSLog(@"Adding friends");
+        
+        [self.nameOfTheSelectedFirends addObject:user.username];
+        
+//        if (user.username != ) {
+//
+//        }
+        
         [self.currentUser addFriend:user];
     }    
 }
 
-#pragma mark - Helper methods
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    User *user = [self.allUsers objectAtIndex:indexPath.row];
+   
+    if ([self isFriend:user]) {
+        NSLog(@"hitting didDeselectRow branch to check existing freinds --- already friends");
+        [self.currentUser removeFriend:user];
+        // I want to get rid of the checkmarck here but It does not work
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.tableView reloadData];
+    }
+    
+}
 
+#pragma mark - Helper methods
+// Aletred the body of the function to work with array of names
 - (BOOL)isFriend:(User *)user {
-  return [self.currentUser.friends containsObject:user];
+  return [self.nameOfTheSelectedFirends containsObject:user.username];
 }
 
 @end
