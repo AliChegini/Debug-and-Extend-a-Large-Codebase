@@ -22,6 +22,7 @@
     [self.tableView reloadData];
   
     self.currentUser = [User currentUser];
+    // alloc and init nameOfTheSelectedFirends
     self.nameOfTheSelectedFirends = [[NSMutableArray alloc] init];
 }
 

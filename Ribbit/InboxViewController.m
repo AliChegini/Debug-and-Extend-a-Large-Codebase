@@ -12,6 +12,7 @@
 #import "App.h"
 #import "File.h"
 
+
 @interface InboxViewController ()
 
 @end
@@ -22,7 +23,7 @@
 {
     [super viewDidLoad];
 
-    self.moviePlayer = [[MPMoviePlayerController alloc] init];
+    //self.moviePlayer = [[AVPlayer alloc] init];
     
     User *currentUser = [User currentUser];
     if (currentUser) {
@@ -82,13 +83,17 @@
     else {
         // File type is video
         File *videoFile = self.selectedMessage.file;
-        self.moviePlayer.contentURL = videoFile.fileURL;
-        [self.moviePlayer prepareToPlay];
-        [self.moviePlayer thumbnailImageAtTime:0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+        NSLog(@"URL is : %@", videoFile.fileURL);
+        //AVPlayer *player = [AVPlayer playerWithURL:videoFile.fileURL];
+//        AVPlayerViewController *playerViewController  = [[AVPlayerViewController alloc] init];
+//        [self presentViewController:playerViewController animated:YES completion:nil];
+//        playerViewController.player = player;
+//        [player play];
+        
         
         // Add it to the view controller so we can see it
-        [self.view addSubview:self.moviePlayer.view];
-        [self.moviePlayer setFullscreen:YES animated:YES];
+        //[self.view addSubview:self.moviePlayer.view];
+        //[self.moviePlayer setFullscreen:YES animated:YES];
     }
     
     // Delete it!
