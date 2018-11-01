@@ -164,7 +164,8 @@
     
     if (self.image != nil) {
         UIImage *newImage = self.image;
-        fileData = UIImagePNGRepresentation(newImage);
+        // fixed bug (memory leak) by replacing PNG with JPEG
+        fileData = UIImageJPEGRepresentation(newImage, 0.0);
         fileName = [NSString stringWithFormat:@"%f.png",[NSDate timeIntervalSinceReferenceDate]];
         fileType = @"image";
     }
@@ -204,11 +205,13 @@
                 else {
                     // Everything was successful!
                     [self reset];
+                    
                 }
             }];
         }
     }];
 }
+
 
 - (void)reset {
     self.image = nil;

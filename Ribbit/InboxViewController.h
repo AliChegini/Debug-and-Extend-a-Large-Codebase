@@ -14,7 +14,7 @@
 @interface InboxViewController : UITableViewController
 
 @property (nonatomic, strong) Message *selectedMessage;
-//@property (nonatomic, strong) AVPlayer *moviePlayer;
+@property (nonatomic, strong) AVPlayer *moviePlayer;
 
 - (IBAction)logout:(id)sender;
 

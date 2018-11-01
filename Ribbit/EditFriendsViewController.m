@@ -72,22 +72,21 @@
   
     User *user = [self.allUsers objectAtIndex:indexPath.row];
     
+    // if they are already friends remove by tapping
     if ([self isFriend:user]) {
+        // issue : the check mark does not go away
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.currentUser removeFriend:user];
         [self.tableView reloadData];
+        
         NSLog(@"already friends");
     }
     else {
+        // if they are not friends add them by tapping
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         NSLog(@"Adding friends");
         
         [self.nameOfTheSelectedFirends addObject:user.username];
-        
-//        if (user.username != ) {
-//
-//        }
-        
         [self.currentUser addFriend:user];
     }    
 }
@@ -108,9 +107,10 @@
 }
 
 #pragma mark - Helper methods
-// Aletred the body of the function to work with array of names
+// Altered the body of the function to work with array of names
 - (BOOL)isFriend:(User *)user {
-  return [self.nameOfTheSelectedFirends containsObject:user.username];
+  //return [self.currentUser.friends containsObject:user];
+    return [self.nameOfTheSelectedFirends containsObject:user.username];
 }
 
 @end
