@@ -22,8 +22,8 @@ static NSInteger identifier = 1;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     sharedUser = [[self alloc] init];
-    sharedUser.username = @"Current user";
-    sharedUser.objectId = @"100";
+    sharedUser.username = @"";
+    sharedUser.objectId = @"";
     sharedUser.friendsMutable = [NSMutableArray array];
   });
   

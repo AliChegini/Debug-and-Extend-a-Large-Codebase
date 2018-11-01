@@ -13,9 +13,6 @@
 
 @property (nonatomic, strong) User *currentUser;
 
-// array to hold the names of friends
-@property (nonatomic, strong) NSMutableArray *nameOfTheSelectedFirends;
-
 - (BOOL)isFriend:(User *)user;
 
 @end

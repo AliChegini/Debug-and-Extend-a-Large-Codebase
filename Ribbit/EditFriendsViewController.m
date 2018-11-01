@@ -22,8 +22,6 @@
     [self.tableView reloadData];
   
     self.currentUser = [User currentUser];
-    // alloc and init nameOfTheSelectedFirends
-    self.nameOfTheSelectedFirends = [[NSMutableArray alloc] init];
 }
 
 - (NSArray *)allUsers {
@@ -72,45 +70,21 @@
   
     User *user = [self.allUsers objectAtIndex:indexPath.row];
     
-    // if they are already friends remove by tapping
+    // if they are already friends remove it by tapping
     if ([self isFriend:user]) {
-        // issue : the check mark does not go away
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.currentUser removeFriend:user];
-        [self.tableView reloadData];
-        
-        NSLog(@"already friends");
     }
     else {
-        // if they are not friends add them by tapping
+        // if they are not friends add them
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        NSLog(@"Adding friends");
-        
-        [self.nameOfTheSelectedFirends addObject:user.username];
         [self.currentUser addFriend:user];
     }    
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    User *user = [self.allUsers objectAtIndex:indexPath.row];
-   
-    if ([self isFriend:user]) {
-        NSLog(@"hitting didDeselectRow branch to check existing freinds --- already friends");
-        [self.currentUser removeFriend:user];
-        // I want to get rid of the checkmarck here but It does not work
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.tableView reloadData];
-    }
-    
-}
-
 #pragma mark - Helper methods
-// Altered the body of the function to work with array of names
 - (BOOL)isFriend:(User *)user {
-  //return [self.currentUser.friends containsObject:user];
-    return [self.nameOfTheSelectedFirends containsObject:user.username];
+   return [self.currentUser.friends containsObject:user];
 }
 
 @end

@@ -17,6 +17,8 @@
 
 @implementation App
 
+@synthesize allUsers = _allUsers;
+
 + (instancetype) currentApp {
   static App *sharedApp = nil;
   
@@ -41,14 +43,17 @@
   return self.messagesMutable;
 }
 
-- (NSArray *)allUsers {
-  return  @[ [User userWithUsername:@"John"],
-             [User userWithUsername:@"Andrew"],
-             [User userWithUsername:@"Ben"],
-             [User userWithUsername:@"Pasan"],
-             [User userWithUsername:@"Amit"],
-             [User userWithUsername:@"Craig"],
-             [User userWithUsername:@"Alena"]];
+- (NSArray<User *> *)allUsers {
+    if (! _allUsers) {
+        _allUsers = @[ [User userWithUsername:@"John"],
+                       [User userWithUsername:@"Andrew"],
+                       [User userWithUsername:@"Ben"],
+                       [User userWithUsername:@"Pasan"],
+                       [User userWithUsername:@"Amit"],
+                       [User userWithUsername:@"Craig"],
+                       [User userWithUsername:@"Alena"]];
+    }
+    return _allUsers;
 }
 
 
